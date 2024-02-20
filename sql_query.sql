@@ -1,0 +1,5 @@
+--1. List the ID and name of all employees.
+--2. List the name of all projects together with their type
+--3. List the ID and name of all employees together with the project name and project category that they work on.
+--4. List the ID and name of all tasks together with the name and ID of the employee who works on this task
+--5. List the ID and name of all employees together with the office number that they are based in.
