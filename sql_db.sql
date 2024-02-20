@@ -9,7 +9,7 @@ CREATE TABLE Employees (
     office_address VARCHAR(255)
 );
 
-CREATE TABLE Employees (
+CREATE TABLE Teams (
     id INT NOT NULL AUTO_INCREMENT UNIQUE,
     manager_id INT
 );
