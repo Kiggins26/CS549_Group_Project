@@ -28,10 +28,11 @@ CREATE TABLE Project(
 
 -- ID needs to "PROJ_ID|TASK_ID"
 CREATE TABLE Task(
-    id INT NOT NULL,
+    id VARCHAR(255) NOT NULL,
+    task_id INT NOT NULL,
     progress FLOAT,
     emp_id INT NOT NULL,
-    proj_od  INT,
+    proj_id  INT,
     progress FLOAT CHECK (progress BETWEEN 0.0 AND 1.0),
     weight INT CHECK (weight BETWEEN 1 AND 5)
 );
