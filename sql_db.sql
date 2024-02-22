@@ -7,7 +7,7 @@ CREATE TABLE Employees (
     job_type VARCHAR(50),
     team_id INT,
     office_address TEXT, 
-    CONSTRAINT CHK_based CHECK (software_based != 0 AND admin_based != 0) 
+    CONSTRAINT CHK_based CHECK (NOT software_based = 1 OR NOT admin_based = 1) 
 );
 
 CREATE TABLE Teams (
