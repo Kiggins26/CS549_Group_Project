@@ -7,6 +7,7 @@ CREATE TABLE Employees (
     job_type ENUM('Front-end Engineer', 'Backend Engineer', 'DevOps Engineer', 'Marketing'),
     team_id INT UNIQUE,
     office_address VARCHAR(255)
+    CONSTRAINT CHK_based CHECK (software_based != False AND admin_based != False)
 );
 
 CREATE TABLE Teams (
