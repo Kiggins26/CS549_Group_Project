@@ -25,6 +25,8 @@ CREATE TABLE Project(
     progress FLOAT CHECK (progress BETWEEN 0.0 AND 1.0)
 );
 
+
+-- ID needs to "PROJ_ID|TASK_ID"
 CREATE TABLE Task(
     id INT NOT NULL,
     progress FLOAT,
