@@ -3,7 +3,7 @@ CREATE TABLE Employees (
     name VARCHAR(255) NOT NULL,
     department VARCHAR(255) NOT NULL,
     software_based BOOLEAN,
-    manager BOOLEAN,
+    admin_based BOOLEAN,
     job_type ENUM('Front-end Engineer', 'Backend Engineer', 'DevOps Engineer', 'Marketing'),
     team_id INT UNIQUE,
     office_address VARCHAR(255)
