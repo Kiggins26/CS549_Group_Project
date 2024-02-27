@@ -31,7 +31,7 @@ CREATE TABLE Tasks(
     task_id INT NOT NULL,
     progress FLOAT CHECK (progress BETWEEN 0.0 AND 1.0),
     weight INT CHECK (weight BETWEEN 1 AND 5),
-    emp_id INT NOT NULL,
+    emp_id INT,
     proj_id  INT,
     FOREIGN KEY (emp_id) REFERENCES Employees(id),
     FOREIGN KEY (proj_id) REFERENCES Projects(id) 
