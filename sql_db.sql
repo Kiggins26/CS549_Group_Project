@@ -29,6 +29,7 @@ CREATE TABLE Projects(
 CREATE TABLE Tasks(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
     task_id INT NOT NULL,
+    name VARCHAR(255),
     progress FLOAT CHECK (progress BETWEEN 0.0 AND 1.0),
     weight INT CHECK (weight BETWEEN 1 AND 5),
     emp_id INT,
