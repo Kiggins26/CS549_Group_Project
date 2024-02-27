@@ -1,3 +1,5 @@
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
 --1. List the ID and name of all employees.
 SELECT id, name FROM Employees;
 --2. List the name of all projects together with their type
