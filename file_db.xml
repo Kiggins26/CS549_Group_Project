@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE company [
+    <!ELEMENT company (employees, teams, projects, tasks, monthly_reports)>
+    <!ELEMENT employees (employee+)>
+    <!ELEMENT employee (id, name, department, software_based, admin_based, job_type, team_id, office_address)>
+    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT department (#PCDATA)>
+    <!ELEMENT software_based (#PCDATA)>
+    <!ELEMENT admin_based (#PCDATA)>
+    <!ELEMENT job_type (#PCDATA)>
+    <!ELEMENT team_id (#PCDATA)>
+    <!ELEMENT office_address (#PCDATA)>
+
+    <!ELEMENT teams (team+)>
+    <!ELEMENT team (id, manager_id)>
+    <!ELEMENT manager_id (#PCDATA)>
+
+    <!ELEMENT projects (project+)>
+    <!ELEMENT project (id, name, type, category, team_id, project_manager, progress)>
+    <!ELEMENT type (#PCDATA)>
+    <!ELEMENT category (#PCDATA)>
+    <!ELEMENT project_manager (#PCDATA)>
+    <!ELEMENT progress (#PCDATA)>
+
+    <!ELEMENT tasks (task+)>
+    <!ELEMENT task (id, task_id, progress, weight, emp_id, proj_id)>
+    <!ELEMENT task_id (#PCDATA)>
+    <!ELEMENT weight (#PCDATA)>
+    <!ELEMENT emp_id (#PCDATA)>
+    <!ELEMENT proj_id (#PCDATA)>
+
+    <!ELEMENT monthly_reports (monthly_report+)>
+    <!ELEMENT monthly_report (report_month_id, task_id, emp_id, proj_id)>
+    <!ELEMENT report_month_id (#PCDATA)>
+    <!ELEMENT task_id (#PCDATA)>
+    <!ELEMENT emp_id (#PCDATA)>
+    <!ELEMENT proj_id (#PCDATA)>
+]>
+
+<company>
+    <employees>
+        <employee>
+            <id>1</id>
+            <name>John Doe</name>
+            <department>Engineering</department>
+            <software_based>false</software_based>
+            <admin_based>true</admin_based>
+            <job_type>Software Engineer</job_type>
+            <team_id>1</team_id>
+            <office_address>123 Main Street</office_address>
+        </employee>
+        <employee>
+            <id>2</id>
+            <name>Jane Smith</name>
+            <department>Marketing</department>
+            <software_based>true</software_based>
+            <admin_based>false</admin_based>
+            <job_type>Marketing Specialist</job_type>
+            <team_id>2</team_id>
+            <office_address>456 Elm Street</office_address>
+        </employee>
+    </employees>
+    <teams>
+        <team>
+            <id>1</id>
+            <manager_id>1</manager_id>
+        </team>
+        <team>
+            <id>2</id>
+            <manager_id>2</manager_id>
+        </team>
+    </teams>
+    <projects>
+        <project>
+            <id>1</id>
+            <name>Project A</name>
+            <type>Internal</type>
+            <category>Software Development</category>
+            <team_id>1</team_id>
+            <project_manager>1</project_manager>
+            <progress>0.75</progress>
+        </project>
+        <project>
+            <id>2</id>
+            <name>Project B</name>
+            <type>External</type>
+            <category>Marketing Campaign</category>
+            <team_id>2</team_id>
+            <project_manager>2</project_manager>
+            <progress>0.5</progress>
+        </project>
+    </projects>
+    <tasks>
+        <task>
+            <id>1</id>
+            <task_id>101</task_id>
+            <progress>0.8</progress>
+            <weight>3</weight>
+            <emp_id>1</emp_id>
+            <proj_id>1</proj_id>
+        </task>
+        <task>
+            <id>2</id>
+            <task_id>102</task_id>
+            <progress>0.6</progress>
+            <weight>2</weight>
+            <emp_id>2</emp_id>
+            <proj_id>2</proj_id>
+        </task>
+    </tasks>
+    <monthly_reports>
+        <monthly_report>
+            <report_month_id>1</report_month_id>
+            <task_id>1</task_id>
+            <emp_id>1</emp_id>
+            <proj_id>1</proj_id>
+        </monthly_report>
+        <monthly_report>
+            <report_month_id>2</report_month_id>
+            <task_id>2</task_id>
+            <emp_id>2</emp_id>
+            <proj_id>2</proj_id>
+        </monthly_report>
+    </monthly_reports>
+</company>
