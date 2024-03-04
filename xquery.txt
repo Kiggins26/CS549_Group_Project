@@ -1,0 +1,26 @@
+1. List the ID and name of all employees.
+
+for $x in //company/employees
+return ($x//id, $x//name)
+
+2. List the name of all projects together with their type.
+
+for $x in //company/projects
+return ($x//type, $x//name)
+
+3. List the ID and name of all employees together with the project name and project category that
+they work on.
+
+for $x in //company
+return ($x/employees//id, $x/employees//name, $x/projects//name, $x/projects//category)
+
+4. List the ID and name of all tasks together with the name and ID of the employee who works on
+this task.
+
+for $x in //company
+return ($x/tasks//task_id, $x/tasks//name,$x/employees//id, $x/employees//name) 
+
+5. List the ID and name of all employees together with the office number that they are based in.
+
+for $x in //company/employees
+return ($x//id, $x//name, $x//office_address)
