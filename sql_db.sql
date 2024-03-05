@@ -6,18 +6,33 @@ create table Employees(
     software_based boolean,
     admin_based boolean,
     job_role varchar(255),
-    team_id INT NOT NULL,
+    team_id INT,
     office_location varchar(255)
-    -- FOREIGN KEY (team_id) REFERENCES Teams(team_id)
 );
 
 
 -- Teams
 create table Teams(
     team_id INT NOT NULL PRIMARY KEY,
-    team_manager INT NOT NULL
-    -- FOREIGN KEY (team_manager) REFERENCES Employees(emp_id)
+    team_manager INT
 );
+
+
+-- Insert values in Employees Table
+
+insert into Employees values(1, "John Doe", "Engineering", 1, 0, "Software Developer", 111, "London"),
+(2, "Jane Smith", "Marketing", 0, 1, "Marketing Specialist", 222 , "Glasgow"),
+(3, "Michael Johnson", "Finance", 0, 1, "Accountant", 333, "Manchester"),
+(4, "Emily Brown", "HR", 0, 1, "HR Manager ", 333, "Edinburgh"),
+(5, "Chris Lee", "Engineering", 1, 1, "Software Developer", 111, "Edinburgh");
+
+-- Insert values in Teams table
+
+insert into Teams values(111, 1),
+(222, 2),
+(333, 4);
+
+-- Adding foreign key constraints in Employee and Teams table
 
 ALTER TABLE Employees ADD FOREIGN KEY (team_id) REFERENCES Teams(team_id);
 ALTER TABLE Teams ADD FOREIGN KEY (team_manager) REFERENCES Employees(emp_id);
@@ -57,5 +72,30 @@ create table Monthly_Progress(
     FOREIGN KEY (project_id) REFERENCES Projects(project_id),
     FOREIGN KEY (task_code) REFERENCES Tasks(Code)
 );
+
+
+-- Insert values in Projects 
+
+insert into Projects values(1, "InnovateX", "Web App", "Enterprise Software", 111),
+(2, "Salesforce CRM", "Desktop App", "Enterprise Software", 111),
+(3, "ESS Portal", "Desktop App", "Payrol Software", 333);
+
+
+-- Insert values in Tasks
+
+insert into Tasks values(101, "Frontend Design", 4, 1, 1), 
+(101,"Frontend Design",4 ,2, 1),
+(102, "Frontend Testing", 3, 1, 5); 
+
+
+-- Insert values in Monthly_Progress
+
+insert into Monthly_Progress values(1, 2, 1, 101, 100),
+(2, 1, 3, 101, 50),
+(3, 5, 1, 102, 10);
+
+
+
+
 
 
