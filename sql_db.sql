@@ -7,7 +7,8 @@ create table Employees(
     admin_based boolean,
     job_role varchar(255),
     team_id INT,
-    office_location varchar(255)
+    office_location varchar(255),
+    CONSTRAINT CHK_based CHECK (NOT software_based = 1 OR NOT admin_based = 1) 
 );
 
 
@@ -44,6 +45,8 @@ create table Projects(
     type varchar(255) NOT NULL,
     category varchar(255) NOT NULL,
     team_id INT,
+    project_manager INT,
+    progress FLOAT CHECK (progress BETWEEN 0.0 AND 1.0),
     FOREIGN KEY (team_id) REFERENCES Teams(team_id)
 );
 
