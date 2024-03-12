@@ -2,24 +2,24 @@
 <!DOCTYPE company [
     <!ELEMENT company (employees, teams, projects, tasks, monthly_reports)>
     <!ELEMENT employees (employee+)>
-    <!ELEMENT employee (id, name, department, software_based, admin_based, job_type, team_id, office_address)>
-    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT employee (emp_id, name, department, software_based, admin_based, job_role, team_id, office_location)>
+    <!ELEMENT emp_id (#PCDATA)>
     <!ELEMENT name (#PCDATA)>
     <!ELEMENT department (#PCDATA)>
     <!ELEMENT software_based (#PCDATA)>
     <!ELEMENT admin_based (#PCDATA)>
-    <!ELEMENT job_type (#PCDATA)>
+    <!ELEMENT job_role (#PCDATA)>
     <!ELEMENT team_id (#PCDATA)>
-    <!ELEMENT office_address (#PCDATA)>
+    <!ELEMENT office_location (#PCDATA)>
 
     <!ELEMENT teams (team+)>
-    <!ELEMENT team (id, manager_id)>
-    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT team (team_id, manager_id)>
+    <!ELEMENT team_id (#PCDATA)>
     <!ELEMENT manager_id (#PCDATA)>
 
     <!ELEMENT projects (project+)>
-    <!ELEMENT project (id, name, type, category, team_id, project_manager, progress)>
-    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT project (project_id, name, type, category, team_id, project_manager, progress)>
+    <!ELEMENT project_id (#PCDATA)>
     <!ELEMENT name (#PCDATA)>
     <!ELEMENT type (#PCDATA)>
     <!ELEMENT category (#PCDATA)>
@@ -28,8 +28,8 @@
     <!ELEMENT progress (#PCDATA)>
 
     <!ELEMENT tasks (task+)>
-    <!ELEMENT task (id, name, weight, project_id, emp_id)>
-    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT task (task_id, name, weight, project_id, emp_id)>
+    <!ELEMENT task_id (#PCDATA)>
     <!ELEMENT name (#PCDATA)>
     <!ELEMENT weight (#PCDATA)>
     <!ELEMENT project_id (#PCDATA)>
@@ -47,73 +47,73 @@
 <company>
     <employees>
         <employee>
-            <id>1</id>
+            <emp_id>1</emp_id>
             <name>John Doe</name>
             <department>Engineering</department>
             <software_based>false</software_based>
             <admin_based>true</admin_based>
-            <job_type>Software Developer</job_type>
+            <job_role>Software Developer</job_role>
             <team_id>111</team_id>
-            <office_address>London</office_address>
+            <office_location>London</office_location>
         </employee>
         <employee>
-            <id>2</id>
+            <emp_id>2</emp_id>
             <name>Jane Smith</name>
             <department>Marketing</department>
             <software_based>true</software_based>
             <admin_based>false</admin_based>
-            <job_type>Marketing Specialist</job_type>
+            <job_role>Marketing Specialist</job_role>
             <team_id>222</team_id>
-            <office_address>Glasgow</office_address>
+            <office_location>Glasgow</office_location>
         </employee>
         <employee>
-            <id>3</id>
+            <emp_id>3</emp_id>
             <name>Michael Johnson</name>
             <department>Finance</department>
             <software_based>false</software_based>
             <admin_based>true</admin_based>
-            <job_type>Accountant</job_type>
+            <job_role>Accountant</job_role>
             <team_id>333</team_id>
-            <office_address>Manchester</office_address>
+            <office_location>Manchester</office_location>
         </employee>
         <employee>
-            <id>4</id>
+            <emp_id>4</emp_id>
             <name>Emily Brown</name>
             <department>HR</department>
             <software_based>false</software_based>
             <admin_based>true</admin_based>
-            <job_type>HR Manager</job_type>
+            <job_role>HR Manager</job_role>
             <team_id>333</team_id>
-            <office_address>Edinburgh</office_address>
+            <office_location>Edinburgh</office_location>
         </employee>
         <employee>
-            <id>5</id>
+            <emp_id>5</emp_id>
             <name>Chris Lee</name>
             <department>Engineering</department>
             <software_based>true</software_based>
             <admin_based>true</admin_based>
-            <job_type>Software Developer</job_type>
+            <job_role>Software Developer</job_role>
             <team_id>111</team_id>
-            <office_address>Edinburgh</office_address>
+            <office_location>Edinburgh</office_location>
         </employee>
     </employees>
     <teams>
         <team>
-            <id>111</id>
+            <team_id>111</team_id>
             <manager_id>1</manager_id>
         </team>
         <team>
-            <id>222</id>
+            <team_id>222</team_id>
             <manager_id>2</manager_id>
         </team>
         <team>
-            <id>333</id>
+            <team_id>333</team_id>
             <manager_id>4</manager_id>
         </team>
     </teams>
     <projects>
         <project>
-            <id>1</id>
+            <project_id>1</project_id>
             <name>InnovateX</name>
             <type>Web App</type>
             <category>Enterprise Software</category>
@@ -122,7 +122,7 @@
             <progress>0.75</progress>
         </project>
         <project>
-            <id>2</id>
+            <project_id>2</project_id>
             <name>Salesforce CRM</name>
             <type>Desktop App</type>
             <category>Enterprise Software</category>
@@ -131,7 +131,7 @@
             <progress>0.0</progress>
         </project>
         <project>
-            <id>3</id>
+            <project_id>3</project_id>
             <name>ESS Portal</name>
             <type>Desktop App</type>
             <category>Payroll Software</category>
@@ -142,21 +142,21 @@
     </projects>
     <tasks>
         <task>
-            <id>101</id>
+            <task_id>101</task_id>
             <name>Frontend Design</name>
             <weight>4</weight>
             <project_id>1</project_id>
             <emp_id>1</emp_id>
         </task>
         <task>
-            <id>101</id>
+            <task_id>101</task_id>
             <name>Frontend Design</name>
             <weight>4</weight>
             <project_id>2</project_id>
             <emp_id>5</emp_id>
         </task>
         <task>
-            <id>102</id>
+            <task_id>102</task_id>
             <name>Frontend Testing</name>
             <weight>3</weight>
             <project_id>1</project_id>
@@ -186,4 +186,4 @@
             <completion_percent>10</completion_percent>
         </monthly_report>
     </monthly_reports>
-</company
+</company>
