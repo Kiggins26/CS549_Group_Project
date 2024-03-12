@@ -8,7 +8,7 @@ create table Employees(
     job_role varchar(255),
     team_id INT,
     office_location varchar(255),
-    CONSTRAINT CHK_based CHECK (NOT software_based = 1 OR NOT admin_based = 1) 
+    CONSTRAINT CHK_based CHECK (software_based OR admin_based) 
 );
 
 
@@ -79,9 +79,9 @@ create table Monthly_Progress(
 
 -- Insert values in Projects 
 
-insert into Projects values(1, "InnovateX", "Web App", "Enterprise Software", 111),
-(2, "Salesforce CRM", "Desktop App", "Enterprise Software", 111),
-(3, "ESS Portal", "Desktop App", "Payrol Software", 333);
+insert into Projects values(1, "InnovateX", "Web App", "Enterprise Software", 111, 1, .7),
+(2, "Salesforce CRM", "Desktop App", "Enterprise Software", 111, 1, .06),
+(3, "ESS Portal", "Desktop App", "Payrol Software", 333, 1, .5);
 
 
 -- Insert values in Tasks
