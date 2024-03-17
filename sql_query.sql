@@ -13,5 +13,5 @@ select Employees.emp_id, Employees.name, Projects.Name, Projects.Category from E
 select Tasks.Code, Tasks.Name, Employees.emp_id, Employees.Name from Tasks, Employees where Tasks.emp_id = Employees.emp_id;
 
 -- 5. List the ID and name of all employees together with the office number that they are based in.
-select id, name, office_location from Employees;
+select emp_id, name, office_location from Employees;
 
