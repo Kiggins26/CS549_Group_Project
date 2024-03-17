@@ -1,7 +1,7 @@
 -- Queries
 
 -- 1. List the ID and name of all employees.
-select id, name from Employees;
+select emp_id, name from Employees;
 
 -- 2. List the name of all projects together with their type.
 select distinct(Name), type from Projects;
