@@ -17,8 +17,15 @@ return ($x/employees//id, $x/employees//name, $x/projects//name, $x/projects//ca
 4. List the ID and name of all tasks together with the name and ID of the employee who works on
 this task.
 
-for $x in //company
-return ($x/tasks//task_id, $x/tasks//name,$x/employees//id, $x/employees//name) 
+for $x in /company/tasks/task
+return
+    <tasks>
+        <task_id>{$x/task_id}</task_id>
+        <task_name>{$x/name}</task_name>
+        <employee_id>{$x/emp_id}</employee_id>
+        <employee_name>{/company/employees/employee[emp_id = $x/emp_id]/name}</employee_name>
+    </tasks>
+
 
 5. List the ID and name of all employees together with the office number that they are based in.
 
