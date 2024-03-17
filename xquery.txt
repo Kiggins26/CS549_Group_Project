@@ -1,12 +1,23 @@
 1. List the ID and name of all employees.
 
-for $x in //company/employees
-return ($x//id, $x//name)
+for $employee in /company/employees/employee
+return
+    <employee>
+        <employee_id>{$employee/emp_id}</employee_id>
+        <employee_name>{$employee/name}</employee_name>
+    </employee>
+
+
 
 2. List the name of all projects together with their type.
 
-for $x in //company/projects
-return ($x//type, $x//name)
+for $project in /company/projects/project
+return
+    <project>
+        <project_name>{$project/name}</project_name>
+        <project_type>{$project/type}</project_type>
+    </project>
+
 
 3. List the ID and name of all employees together with the project name and project category that
 they work on.
