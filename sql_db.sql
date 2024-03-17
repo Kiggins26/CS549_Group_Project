@@ -87,7 +87,7 @@ insert into Projects values(1, "InnovateX", "Web App", "Enterprise Software", 11
 -- Insert values in Tasks
 
 insert into Tasks values(101, "Frontend Design", 4, 1, 1), 
-(101,"Frontend Design",4 ,2, 1),
+(101,"Frontend Design",4 ,2, 5),
 (102, "Frontend Testing", 3, 1, 5); 
 
 
