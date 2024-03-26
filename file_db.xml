@@ -2,125 +2,188 @@
 <!DOCTYPE company [
     <!ELEMENT company (employees, teams, projects, tasks, monthly_reports)>
     <!ELEMENT employees (employee+)>
-    <!ELEMENT employee (id, name, department, software_based, admin_based, job_type, team_id, office_address)>
-    <!ELEMENT id (#PCDATA)>
+    <!ELEMENT employee (emp_id, name, department, software_based, admin_based, job_role, team_id, office_location)>
+    <!ELEMENT emp_id (#PCDATA)>
     <!ELEMENT name (#PCDATA)>
     <!ELEMENT department (#PCDATA)>
     <!ELEMENT software_based (#PCDATA)>
     <!ELEMENT admin_based (#PCDATA)>
-    <!ELEMENT job_type (#PCDATA)>
+    <!ELEMENT job_role (#PCDATA)>
     <!ELEMENT team_id (#PCDATA)>
-    <!ELEMENT office_address (#PCDATA)>
+    <!ELEMENT office_location (#PCDATA)>
 
     <!ELEMENT teams (team+)>
-    <!ELEMENT team (id, manager_id)>
+    <!ELEMENT team (team_id, manager_id)>
+    <!ELEMENT team_id (#PCDATA)>
     <!ELEMENT manager_id (#PCDATA)>
 
     <!ELEMENT projects (project+)>
-    <!ELEMENT project (id, name, type, category, team_id, project_manager, progress)>
+    <!ELEMENT project (project_id, name, type, category, team_id, project_manager, progress)>
+    <!ELEMENT project_id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
     <!ELEMENT type (#PCDATA)>
     <!ELEMENT category (#PCDATA)>
+    <!ELEMENT team_id (#PCDATA)>
     <!ELEMENT project_manager (#PCDATA)>
     <!ELEMENT progress (#PCDATA)>
 
     <!ELEMENT tasks (task+)>
-    <!ELEMENT task (id, task_id, progress, weight, emp_id, proj_id)>
+    <!ELEMENT task (task_id, name, weight, project_id, emp_id)>
     <!ELEMENT task_id (#PCDATA)>
+    <!ELEMENT name (#PCDATA)>
     <!ELEMENT weight (#PCDATA)>
+    <!ELEMENT project_id (#PCDATA)>
     <!ELEMENT emp_id (#PCDATA)>
-    <!ELEMENT proj_id (#PCDATA)>
 
     <!ELEMENT monthly_reports (monthly_report+)>
-    <!ELEMENT monthly_report (report_month_id, task_id, emp_id, proj_id)>
+    <!ELEMENT monthly_report (report_month_id, task_id, emp_id, proj_id, completion_percent)>
     <!ELEMENT report_month_id (#PCDATA)>
     <!ELEMENT task_id (#PCDATA)>
     <!ELEMENT emp_id (#PCDATA)>
     <!ELEMENT proj_id (#PCDATA)>
+    <!ELEMENT completion_percent (#PCDATA)>
 ]>
 
 <company>
     <employees>
         <employee>
-            <id>1</id>
+            <emp_id>1</emp_id>
             <name>John Doe</name>
             <department>Engineering</department>
             <software_based>false</software_based>
             <admin_based>true</admin_based>
-            <job_type>Software Engineer</job_type>
-            <team_id>1</team_id>
-            <office_address>123 Main Street</office_address>
+            <job_role>Software Developer</job_role>
+            <team_id>111</team_id>
+            <office_location>London</office_location>
         </employee>
         <employee>
-            <id>2</id>
+            <emp_id>2</emp_id>
             <name>Jane Smith</name>
             <department>Marketing</department>
             <software_based>true</software_based>
             <admin_based>false</admin_based>
-            <job_type>Marketing Specialist</job_type>
-            <team_id>2</team_id>
-            <office_address>456 Elm Street</office_address>
+            <job_role>Marketing Specialist</job_role>
+            <team_id>222</team_id>
+            <office_location>Glasgow</office_location>
+        </employee>
+        <employee>
+            <emp_id>3</emp_id>
+            <name>Michael Johnson</name>
+            <department>Finance</department>
+            <software_based>false</software_based>
+            <admin_based>true</admin_based>
+            <job_role>Accountant</job_role>
+            <team_id>333</team_id>
+            <office_location>Manchester</office_location>
+        </employee>
+        <employee>
+            <emp_id>4</emp_id>
+            <name>Emily Brown</name>
+            <department>HR</department>
+            <software_based>false</software_based>
+            <admin_based>true</admin_based>
+            <job_role>HR Manager</job_role>
+            <team_id>333</team_id>
+            <office_location>Edinburgh</office_location>
+        </employee>
+        <employee>
+            <emp_id>5</emp_id>
+            <name>Chris Lee</name>
+            <department>Engineering</department>
+            <software_based>true</software_based>
+            <admin_based>true</admin_based>
+            <job_role>Software Developer</job_role>
+            <team_id>111</team_id>
+            <office_location>Edinburgh</office_location>
         </employee>
     </employees>
     <teams>
         <team>
-            <id>1</id>
+            <team_id>111</team_id>
             <manager_id>1</manager_id>
         </team>
         <team>
-            <id>2</id>
+            <team_id>222</team_id>
             <manager_id>2</manager_id>
+        </team>
+        <team>
+            <team_id>333</team_id>
+            <manager_id>4</manager_id>
         </team>
     </teams>
     <projects>
         <project>
-            <id>1</id>
-            <name>Project A</name>
-            <type>Internal</type>
-            <category>Software Development</category>
-            <team_id>1</team_id>
+            <project_id>1</project_id>
+            <name>InnovateX</name>
+            <type>Web App</type>
+            <category>Enterprise Software</category>
+            <team_id>111</team_id>
             <project_manager>1</project_manager>
             <progress>0.75</progress>
         </project>
         <project>
-            <id>2</id>
-            <name>Project B</name>
-            <type>External</type>
-            <category>Marketing Campaign</category>
-            <team_id>2</team_id>
-            <project_manager>2</project_manager>
-            <progress>0.5</progress>
+            <project_id>2</project_id>
+            <name>Salesforce CRM</name>
+            <type>Desktop App</type>
+            <category>Enterprise Software</category>
+            <team_id>111</team_id>
+            <project_manager>1</project_manager>
+            <progress>0.0</progress>
+        </project>
+        <project>
+            <project_id>3</project_id>
+            <name>ESS Portal</name>
+            <type>Desktop App</type>
+            <category>Payroll Software</category>
+            <team_id>333</team_id>
+            <project_manager>4</project_manager>
+            <progress>0.0</progress>
         </project>
     </projects>
     <tasks>
         <task>
-            <id>1</id>
             <task_id>101</task_id>
-            <progress>0.8</progress>
-            <weight>3</weight>
+            <name>Frontend Design</name>
+            <weight>4</weight>
+            <project_id>1</project_id>
             <emp_id>1</emp_id>
-            <proj_id>1</proj_id>
         </task>
         <task>
-            <id>2</id>
+            <task_id>101</task_id>
+            <name>Frontend Design</name>
+            <weight>4</weight>
+            <project_id>2</project_id>
+            <emp_id>5</emp_id>
+        </task>
+        <task>
             <task_id>102</task_id>
-            <progress>0.6</progress>
-            <weight>2</weight>
-            <emp_id>2</emp_id>
-            <proj_id>2</proj_id>
+            <name>Frontend Testing</name>
+            <weight>3</weight>
+            <project_id>1</project_id>
+            <emp_id>5</emp_id>
         </task>
     </tasks>
     <monthly_reports>
         <monthly_report>
             <report_month_id>1</report_month_id>
-            <task_id>1</task_id>
-            <emp_id>1</emp_id>
+            <task_id>101</task_id>
+            <emp_id>2</emp_id>
             <proj_id>1</proj_id>
+            <completion_percent>100</completion_percent>
         </monthly_report>
         <monthly_report>
             <report_month_id>2</report_month_id>
-            <task_id>2</task_id>
-            <emp_id>2</emp_id>
+            <task_id>101</task_id>
+            <emp_id>1</emp_id>
             <proj_id>2</proj_id>
+            <completion_percent>50</completion_percent>
+        </monthly_report>
+        <monthly_report>
+            <report_month_id>3</report_month_id>
+            <task_id>102</task_id>
+            <emp_id>5</emp_id>
+            <proj_id>1</proj_id>
+            <completion_percent>10</completion_percent>
         </monthly_report>
     </monthly_reports>
 </company>
