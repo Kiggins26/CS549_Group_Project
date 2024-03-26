@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+	<owl:Class rdf:ID="Employee"/>
+	<owl:Class rdf:ID="Team"/>
+	<owl:Class rdf:ID="Project"/>
+	<owl:Class rdf:ID="Task"/>
+	<owl:Class rdf:ID="Monthly_Progress"/>
+	<owl:DatatypeProperty rdf:about="#emp_id">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<!-- Declaration of Datatype Properties -->
+	<owl:DatatypeProperty rdf:about="#Name">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#department">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#software_based">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="boolean"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#admin_based">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="boolean"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#job_role">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#team_id">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#office_location">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#team_manager">
+		<rdfs:domain rdf:resource="#Team"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#project_id">
+		<rdfs:domain rdf:resource="#Project"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#type">
+		<rdfs:domain rdf:resource="#Project"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#category">
+		<rdfs:domain rdf:resource="#Project"/>
+		<rdfs:range rdf:resource="string"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#progress">
+		<rdfs:domain rdf:resource="#Project"/>
+		<rdfs:range rdf:resource="float"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#Code">
+		<rdfs:domain rdf:resource="#Task"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#weight">
+		<rdfs:domain rdf:resource="#Task"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#completion_percent">
+		<rdfs:domain rdf:resource="#Monthly_Progress"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#month_id">
+		<rdfs:domain rdf:resource="#Monthly_Progress"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:DatatypeProperty rdf:about="#task_code">
+		<rdfs:domain rdf:resource="#Monthly_Progress"/>
+		<rdfs:range rdf:resource="int"/>
+	</owl:DatatypeProperty>
+	<owl:Class rdf:about="#Admin">
+		<rdfs:subClassOf rdf:resource="#Employee"/>
+	</owl:Class>
+	<owl:Class rdf:about="#Engineer">
+		<rdfs:subClassOf rdf:resource="#Employee"/>
+	</owl:Class>
+	<owl:Class rdf:about="#Manager">
+		<rdfs:subClassOf rdf:resource="#Admin"/>
+	</owl:Class>
+	<owl:ObjectProperty rdf:ID="Owns">
+		<rdfs:domain rdf:resource="#Team"/>
+		<rdfs:range rdf:resource="#Project"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Works_On">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="#Task"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Has">
+		<rdfs:domain rdf:resource="#Team"/>
+		<rdfs:range rdf:resource="#Employee"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Checks">
+		<rdfs:domain rdf:resource="#Monthly_Progress"/>
+		<rdfs:range rdf:resource="#Project"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Generates">
+		<rdfs:domain rdf:resource="#Task"/>
+		<rdfs:range rdf:resource="#Monthly_Progress"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Belongs">
+		<rdfs:domain rdf:resource="#Task"/>
+		<rdfs:range rdf:resource="#Project"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Manages">
+		<rdfs:domain rdf:resource="#Manager"/>
+		<rdfs:range rdf:resource="#Employee"/>
+	</owl:ObjectProperty>
+	<owl:ObjectProperty rdf:ID="Managed_By">
+		<rdfs:domain rdf:resource="#Employee"/>
+		<rdfs:range rdf:resource="#Manager"/>
+	</owl:ObjectProperty>
+	<!-- Instance -->
+	<owl:NamedIndividual rdf:about="#John">
+		<rdf:type rdf:resource="#Employee"/>
+		<emp_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">101</emp_id>
+		<Name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John Doe</Name>
+		<department rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Engineering</department>
+		<software_based rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</software_based>
+		<admin_based rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</admin_based>
+		<job_role rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Engineer</job_role>
+		<team_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</team_id>
+		<office_location rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Building A, Floor 2</office_location>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="#ProjectA">
+		<rdf:type rdf:resource="#Project"/>
+		<project_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">201</project_id>
+		<type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Software Development</type>
+		<category rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Internal</category>
+		<progress rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.75</progress>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="#Task1">
+		<rdf:type rdf:resource="#Task"/>
+		<Code rdf:datatype="http://www.w3.org/2001/XMLSchema#int">301</Code>
+		<weight rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</weight>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="#MonthlyProgress1">
+		<rdf:type rdf:resource="#Monthly_Progress"/>
+		<completion_percent rdf:datatype="http://www.w3.org/2001/XMLSchema#int">50</completion_percent>
+		<month_id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</month_id>
+		<task_code rdf:datatype="http://www.w3.org/2001/XMLSchema#int">301</task_code>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="#Team1">
+		<rdf:type rdf:resource="#Team"/>
+		<team_manager rdf:datatype="http://www.w3.org/2001/XMLSchema#int">102</team_manager>
+	</owl:NamedIndividual>
+
+	<owl:NamedIndividual rdf:about="#Manager1">
+		<rdf:type rdf:resource="#Manager"/>
+		<Manages rdf:datatype="http://www.w3.org/2001/XMLSchema#int">101</Manages>
+	</owl:NamedIndividual>
+
+</rdf:RDF>
