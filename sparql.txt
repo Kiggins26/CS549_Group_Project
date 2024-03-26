@@ -1,0 +1,57 @@
+1. List the ID and name of all employees.
+
+SELECT ?projectName ?projectType
+WHERE {
+  ?project rdf:type ex:Project ;
+           ex:Name ?projectName ;
+           ex:type ?projectType .
+}
+
+
+2. List the name of all projects together with their type.
+
+SELECT ?projectName ?projectType
+WHERE {
+  ?project rdf:type ex:Project ;
+           ex:Name ?projectName ;
+           ex:type ?projectType .
+}
+
+
+3. List the ID and name of all employees together with the project name and project category that
+they work on.
+
+SELECT ?empID ?empName ?projectName ?projectCategory
+WHERE {
+  ?employee rdf:type ex:Employee ;
+            ex:emp_id ?empID ;
+            ex:Name ?empName ;
+            ex:Works_On ?project .
+  ?project rdf:type ex:Project ;
+           ex:Name ?projectName ;
+           ex:category ?projectCategory .
+}
+
+4. List the ID and name of all tasks together with the name and ID of the employee who works on
+this task.
+
+SELECT ?taskID ?taskName ?empID ?empName
+WHERE {
+  ?task rdf:type ex:Task ;
+        ex:Code ?taskID ;
+        ex:Name ?taskName ;
+        ex:Works_On ?employee .
+  ?employee rdf:type ex:Employee ;
+            ex:emp_id ?empID ;
+            ex:Name ?empName .
+}
+
+5. List the ID and name of all employees together with the office number that they are based in.
+
+SELECT ?empID ?empName ?officeLocation
+WHERE {
+  ?employee rdf:type ex:Employee ;
+            ex:emp_id ?empID ;
+            ex:Name ?empName ;
+            ex:office_location ?officeLocation .
+}
